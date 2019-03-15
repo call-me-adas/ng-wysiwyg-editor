@@ -16,9 +16,6 @@ export class AppComponent {
   }
 
   insertElement(el) {
-    console.log(this.textAreaElement.nativeElement.selectionStart);
-    console.log(this.textAreaElement.nativeElement.selectionEnd);
-
     let a = this.htmlFormat;
     let b = "<"+el+">";
     let b2 = "</"+el+">";
@@ -29,6 +26,13 @@ export class AppComponent {
     } else {
       this.htmlFormat = [a.slice(0, posStart), b, a.slice(posStart, posEnd), b2, a.slice(posEnd)].join('');
     }
+  }
+
+  insertImage() {
+    let src = prompt('Give src');
+    let a = this.htmlFormat;
+    let posStart = this.textAreaElement.nativeElement.selectionStart;
+    this.htmlFormat = [a.slice(0, posStart), "<img class='image' src='", src, "' />" ,a.slice(posStart)].join('');
   }
 
   typeTextarea(event) {
