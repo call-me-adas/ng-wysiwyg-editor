@@ -1,4 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
+import * as HtmlValidator from 'html-tag-validator';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,18 @@ import {Component, ViewEncapsulation} from '@angular/core';
 })
 export class AppComponent {
   htmlFormat = ''
+  error: string = '';
+
+  constructor() {
+  }
+
+  typeTextarea(event) {
+    HtmlValidator(this.htmlFormat, (err, ast) => {
+      if (err) {
+        this.error = err.message;
+      } else {
+        this.error = '';
+      }
+    });
+  }
 }

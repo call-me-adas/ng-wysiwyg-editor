@@ -1,4 +1,33 @@
-<h3>Preview - HTML</h3>
-<textarea rows="4" cols="50" [(ngModel)]="htmlFormat">
-</textarea>
-<div [innerHTML]="htmlFormat" ></div>
+<!--<div class="container">-->
+  <!--<div class="left-side">-->
+    <!--<h3>Preview - HTML</h3>-->
+
+    <!--<div [innerHTML]="htmlFormat" ></div>-->
+  <!--</div>-->
+  <!--<div class="right-side">-->
+    <!--<h3>Type in HTML</h3>-->
+
+    <!--<textarea [(ngModel)]="htmlFormat"></textarea>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="container" style="">
+
+  <div *ngIf="!error;else failed" class="correct msg-box">Okay</div>
+  <ng-template #failed ><div class="failed msg-box">{{error}}</div></ng-template>
+
+  <div class="left-side" >
+    <h3>Preview - HTML</h3>
+
+    <div class="preview-container" [innerHTML]="htmlFormat" ></div>
+  </div>
+
+  <div class="right-side" >
+    <h3>Type in HTML</h3>
+
+    <textarea class="textarea" autosize (keyup)="typeTextarea($event)"
+              [(ngModel)]="htmlFormat"></textarea>
+  </div>
+
+
+</div>

@@ -1,3 +1,49 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: table;
+  width: 100%;
+  min-height: 100vh;
+
+  .left-side, .right-side {
+    display: table-cell;
+    width:50%;
+    padding: 1% 5% 2% 5%;
+  }
+  .left-side {
+    .preview-container {
+      word-break: break-word;
+    }
+  }
+  .right-side {
+    background: #d4eed1;
+    .textarea {
+      min-height: 400px;
+      width: 100%;
+    }
+  }
+
+  .msg-box {
+    position: fixed;
+    height: auto;
+    left: 50%;
+    width: calc(50% - 20px);
+    padding: 10px;
+    bottom: 0;
+    border: 1px dashed;
+    background-color: white;
+    &.failed {
+      color: #b43e3e;
+    }
+    &.correct {
+      color: green;
+    }
+  }
+}
+
+// CLASSES
 .header {
   color: red;
 }
