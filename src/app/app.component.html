@@ -1,16 +1,3 @@
-<!--<div class="container">-->
-  <!--<div class="left-side">-->
-    <!--<h3>Preview - HTML</h3>-->
-
-    <!--<div [innerHTML]="htmlFormat" ></div>-->
-  <!--</div>-->
-  <!--<div class="right-side">-->
-    <!--<h3>Type in HTML</h3>-->
-
-    <!--<textarea [(ngModel)]="htmlFormat"></textarea>-->
-  <!--</div>-->
-<!--</div>-->
-
 <div class="container" style="">
 
   <div *ngIf="!error;else failed" class="correct msg-box">Okay</div>
@@ -24,8 +11,11 @@
 
   <div class="right-side" >
     <h3>Type in HTML</h3>
+    <button (click)="insertElement('h1')">h1</button>
+    <button (click)="insertElement('b')">b</button>
+    <hr>
 
-    <textarea class="textarea" autosize (keyup)="typeTextarea($event)"
+    <textarea class="textarea" autosize (keyup)="typeTextarea($event)" #textAreaElement
               [(ngModel)]="htmlFormat"></textarea>
   </div>
 
